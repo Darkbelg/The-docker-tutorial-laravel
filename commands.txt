@@ -1,0 +1,32 @@
+To stop a container with a specific id or name to stop running
+docker stop f8bb74a56a8f
+
+To run a container on specific port and make it read a certain file in the database
+docker run --rm -p 3000:3000 json-server alt.json
+
+To run a container binding its port and a specific volume
+docker run --rm -p 80:80 -v /home/stijn/Documents/projects/laravel/laracast/the_docker_tutorial/Sites/laravel-docker.test/src:/var/www/html/public laravel-nginx
+
+To build something and give it a name withouth cache
+docker build --no-cache -t laravel-nginx .
+
+To build something but not use the cache.
+docker build --no-cache laravel-nginx .
+
+To build something that doesn't have a image
+docker-compose build composer
+
+To start a specific container and what it depends on
+docker-compose up nginx
+
+To execute a command but not make a container run
+sudo docker-compose run --rm artisan tinker
+
+To see all containers:
+docker-compose ps
+
+To run adn build in production
+sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build nginx
+
+To run in production
+sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up
